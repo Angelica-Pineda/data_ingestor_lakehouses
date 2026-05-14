@@ -17,7 +17,7 @@ class AutoLoaderIngestor:
                  .load(self.config['source_path']))
 
         # Aplicacion de metadatos
-        bronze_df = add_bronze_metadata(query)
+        bronze_df = add_bronze_metadata(query,self.config["type"])
 
         # Escritura en Delta (farmia_Bronze)
         return (bronze_df.writeStream

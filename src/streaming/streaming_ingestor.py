@@ -28,7 +28,7 @@ class KafkaIngestor:
         ).select("data.*", "_kafka_timestamp")
 
         # agregacion de metadatos
-        bronze_df = add_bronze_metadata(decoded_df)
+        bronze_df = add_bronze_metadata(decoded_df,"streaming")
 
         return (bronze_df.writeStream
                 .format("delta")

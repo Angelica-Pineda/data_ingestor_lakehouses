@@ -15,6 +15,7 @@ def main():
     schema_root = BASE_DIR / "config" / "client_schema.properties"
     datasets_root = BASE_DIR / "config" / "datasets.json"
 
+
     kafka_conf = load_concluent_config(str(kafka_root))
     schema_conf = load_concluent_config(str(schema_root))
     datasets = load_datasets(str(datasets_root))
@@ -30,12 +31,12 @@ def main():
         print(f"Iniciando ingesta STREAMING: {ds['name']}")
 
 
-        schema_path = f"config/schemas/{ds['name']}.avsc"
-        with open(schema_path, "r") as f:
-            schema_str = f.read()
+        avsc_path = BASE_DIR / "config" / "schemas" / f"{ds['name']}.avsc"
+        with open(avsc_path, "r") as f:
+            avsc_str = f.read()
 
         streaming_ingestor = KafkaIngestor(spark, kafka_conf, schema_conf, ds)
-        streaming_ingestor.ingest(schema_str)
+        streaming_ingestor.ingest(avsc_str)
 
 
     if spark.streams.active:
