@@ -13,3 +13,6 @@ try:
     spark.range(3).show()
 except Exception as e:
     print(f"Error en la conexión: {e}")
+
+for s in spark.streams.active:
+    print(f"ID: {s.id} | Name: {s.name} | Status: {s.status}")
