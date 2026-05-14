@@ -115,6 +115,16 @@ Clima_externo
 Sensor_iot
 ![img_4.png](img_4.png)
 ![img_2.png](img_2.png)
+
+
+### Como Anotacion importante a tener en cuenta:
+
+Dentro de la carpeta de entrega se veran los siguientes archivos:
+
+- `folder farmia_motor_ingesta` - Esta carpeta contiene todo el motor de ingesta para el procesamiento batch y streaming, además incluye el diagrama del proceso de ingesta junto con su explicación.
+- `Data_ingestor_farmia.py` - Este Notebook contiene toda la logica de generado de datos de las distintas fuentes que se generaron para la practica, este notebook se ejecutó directamente en Databricks.
+- `Setup_farmia.py` - Este Notebook contiene la configuracion inicial del entorno de ingesta, inicialización de rutas de almacenaje y creación de esquemas. Esta notebook sirvió como base para la ejecucion del notebook Data_ingestor_farmia.py y tambien se ejecutó desde Databricks directamente.
+
 ---
 **Autor:** Angelica Pineda
 **Fecha:** Mayo 2026
