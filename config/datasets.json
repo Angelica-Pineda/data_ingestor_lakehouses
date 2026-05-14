@@ -1,0 +1,54 @@
+{
+  "batch_datasets": [
+    {
+      "dataset_name": "ventas_online",
+      "type": "batch",
+      "format": "json",
+      "source_path": "abfss://landing@masterap001sta.dfs.core.windows.net/farmia/ventas_online/",
+      "target_table": "farmia_bronze.ventas_online",
+      "checkpoint_path": "abfss://lakehouse@masterap001sta.dfs.core.windows.net/checkpoints/ventas_online/",
+      "partition_by": ["ingestion_date"]
+    },
+    {
+      "dataset_name": "inventario",
+      "type": "batch",
+      "format": "parquet",
+      "source_path": "abfss://landing@masterap001sta.dfs.core.windows.net/farmia/inventario/",
+      "target_table": "farmia_bronze.inventario",
+      "checkpoint_path": "abfss://lakehouse@masterap001sta.dfs.core.windows.net/checkpoints/inventario/",
+      "partition_by": ["ingestion_date"]
+    },
+    {
+      "dataset_name": "logistica",
+      "type": "batch",
+      "format": "csv",
+      "source_path": "abfss://landing@masterap001sta.dfs.core.windows.net/farmia/logistica/",
+      "target_table": "farmia_bronze.logistica",
+      "checkpoint_path": "abfss://lakehouse@masterap001sta.dfs.core.windows.net/checkpoints/logistica/",
+      "partition_by": ["ingestion_date"],
+      "options": {
+        "header": "true",
+        "delimiter": ","
+      }
+    },
+    {
+      "dataset_name": "clima_externo",
+      "type": "batch",
+      "format": "avro",
+      "source_path": "abfss://landing@masterap001sta.dfs.core.windows.net/farmia/clima_externo/",
+      "target_table": "farmia_bronze.clima_externo",
+      "checkpoint_path": "abfss://lakehouse@masterap001sta.dfs.core.windows.net/checkpoints/clima_externo/",
+      "partition_by": ["ingestion_date"]
+
+    }
+  ],
+  "streaming_dataset": [
+    {
+      "name": "sensor_iot",
+      "kafka_topic": "sensor_iot",
+      "target_table": "farmia_bronze.sensor_iot",
+      "checkpoint_path": "abfss://lakehouse@masterap001sta.dfs.core.windows.net/checkpoints/sensor_iot/",
+      "partition_by": ["ingestion_date"]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "type": "record",
+  "name": "sensor_iot",
+  "fields": [
+    {
+      "name": "sensor_id",
+      "type": "string"
+    },
+    {
+      "name": "Region",
+      "type": "string"
+    },
+    {
+      "name": "temperatura",
+      "type": "long"
+    },
+    {
+      "name": "humedad",
+      "type": "long"
+    },
+    {
+      "name": "ph_suelo",
+      "type": "long"
+    },
+    {
+      "name": "timestamp",
+      "type": "long"
+    }
+  ]
+}
